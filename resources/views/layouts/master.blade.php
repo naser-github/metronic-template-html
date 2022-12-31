@@ -84,7 +84,7 @@
 <!--end::App-->
 
 
-<!--begin::Scrolltop-->
+<!--begin::Scroll to top-->
 <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
     <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
     <span class="svg-icon">
@@ -99,10 +99,11 @@
     </span>
     <!--end::Svg Icon-->
 </div>
-<!--end::Scrolltop-->
+<!--end::Scroll to top-->
 
 <!--begin::Javascript-->
 @include('partials.scripts')
+@include('partials.plugin')
 @yield('page_scripts')
 <!--end::Javascript-->
 </body>

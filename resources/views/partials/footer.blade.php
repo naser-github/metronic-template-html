@@ -4,8 +4,8 @@
         class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
-            <span class="text-muted fw-semibold me-1">2022&copy;</span>
-            <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+            <span class="text-muted fw-semibold me-1">{{\Carbon\Carbon::now()->format('Y')}}&copy;</span>
+            <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Inventory Manager</a>
         </div>
         <!--end::Copyright-->
         <!--begin::Menu-->
@@ -15,10 +15,6 @@
             </li>
             <li class="menu-item">
                 <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
-            </li>
-            <li class="menu-item">
-                <a href="https://1.envato.market/EA4JP" target="_blank"
-                   class="menu-link px-2">Purchase</a>
             </li>
         </ul>
         <!--end::Menu-->
