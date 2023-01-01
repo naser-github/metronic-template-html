@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Settings\PermissionController;
+use App\Http\Controllers\Settings\RoleController;
 use App\Http\Controllers\Settings\UserController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -19,8 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', [TestController::class,'test']);
+Route::get('/test', [TestController::class, 'test']);
+
+Route::resource('permissions', PermissionController::class)->only([
+    'index', 'store', 'destroy'
+]);
 
 Route::resources([
-    'users' => UserController::class
+    'roles' => RoleController::class,
+    'users' => UserController::class,
 ]);

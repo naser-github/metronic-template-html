@@ -12,12 +12,17 @@ class PermissionService
      */
     public function index(): Collection|array
     {
-        return Permission::query()->orderBy('name','ASC')->get();
+        return Permission::query()->orderBy('name', 'ASC')->get();
     }
 
     public function findById($payload): object|null
     {
         return Permission::query()->where('id', $payload)->first();
+    }
+
+    public function findByIdWR($payload): object|null
+    {
+        return Permission::query()->with(['roles'])->where('id', $payload)->first();
     }
 
     public function store($payload): void
@@ -32,6 +37,16 @@ class PermissionService
     {
         $permission->name = $payload;
         $permission->save();
+    }
+
+    public function destroy($payload): void
+    {
+        Permission::query()->where('id', $payload)->delete();
+    }
+
+    public function permissionList(): Collection
+    {
+        return Permission::all('id', 'name');
     }
 
 }

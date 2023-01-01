@@ -29,7 +29,7 @@ class UserController extends Controller
     {
         $users = $userService->index();
 
-        return view('pages.settings.user-management.index', compact('users'));
+        return view('pages.settings.user.index', compact('users'));
     }
 
     /**
@@ -40,7 +40,7 @@ class UserController extends Controller
     {
         $roles = $roleService->roleList();
 
-        return view('pages.settings.user-management.create', compact('roles'));
+        return view('pages.settings.user.create', compact('roles'));
     }
 
     /**
@@ -76,7 +76,7 @@ class UserController extends Controller
         $user = $userService->findByIdWPR($id);
 
         if ($user) {
-            return view('pages.settings.user-management.show', compact( 'user'));
+            return view('pages.settings.user.show', compact( 'user'));
         } else {
             Session::flash('error', 'No User Found');
             return redirect()->back();
@@ -96,7 +96,7 @@ class UserController extends Controller
 
         if ($user) {
             $roles = $roleService->roleList();
-            return view('pages.settings.user-management.edit', compact('roles', 'user'));
+            return view('pages.settings.user.edit', compact('roles', 'user'));
         } else {
             Session::flash('error', 'No User Found');
             return redirect()->back();

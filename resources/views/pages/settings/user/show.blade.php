@@ -27,7 +27,9 @@
         <div class="card-header cursor-pointer">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <a href="{{ URL::previous() }}" class="btn btn-icon-gray-600 m-0 p-0 me-2"><-</a>
+                <a href="{{ URL::previous() }}" class="btn btn-icon-gray-600 m-0 p-0 me-2">
+                    <i class="fa-solid fa-arrow-left text-info"></i>
+                </a>
                 <h3 class="fw-bold m-0">User Details</h3>
             </div>
             <!--end::Card title-->
