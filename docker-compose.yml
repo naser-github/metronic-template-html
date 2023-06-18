@@ -28,15 +28,17 @@ services:
         restart: unless-stopped # automatically restarts the MySQL server if stops
 
         ports:
-            - "3306:3306" # custom_port_number : actual_port_number
+            - "3336:3306" # custom_port_number : actual_port_number
 
         environment:
-            MYSQL_DATABASE: ${DB_DATABASE} #database name
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD} #database root password
-            MYSQL_PASSWORD: ${DB_PASSWORD} #database password
-            #            MYSQL_USER: ${DB_USERNAME} #database user
+            MYSQL_DATABASE: metronic_template #database name
+            MYSQL_ROOT_PASSWORD: root #database root password
+            MYSQL_PASSWORD: root #database password
+            MYSQL_USER: root_user #database user
             SERVICE_TAGS: dev
             SERVICE_NAME: mysql
+
+#            ${DB_USERNAME}
         volumes:
             - metronic_template_data:/var/lib/mysql
         networks:
