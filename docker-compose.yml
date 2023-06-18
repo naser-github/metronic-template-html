@@ -1,0 +1,79 @@
+version: '3.8'
+services:
+
+    #   PHP Server
+    metronic_template:
+        build:
+            args:
+                user: naser
+                uid: 1000
+            context: ./ # path of Dockerfile
+            dockerfile: Dockerfile
+
+        image: metronic_template
+        container_name: metronic_template
+        restart: unless-stopped # automatically restarts the MySQL server if stops
+
+        working_dir: /var/www # [/var/www] is the standard though you can use any name
+        volumes:
+            - ./:/var/www
+
+        networks:
+            - metronic_template_network
+
+    #   Database Server
+    metronic_template_db:
+        image: mysql:8.0
+        container_name: metronic_template_db
+        restart: unless-stopped # automatically restarts the MySQL server if stops
+
+        ports:
+            - "3306:3306" # custom_port_number : actual_port_number
+
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE} #database name
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD} #database root password
+            MYSQL_PASSWORD: ${DB_PASSWORD} #database password
+            #            MYSQL_USER: ${DB_USERNAME} #database user
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes:
+            - metronic_template_data:/var/lib/mysql
+        networks:
+            - metronic_template_network
+
+    #   Nginx Server
+    metronic_template_nginx:
+        image: nginx:latest
+        container_name: metronic_template_nginx
+        restart: unless-stopped
+        ports:
+            - "8000:80"
+        volumes:
+            - ./:/var/www
+            - ./docker-compose/nginx:/etc/nginx/conf.d
+        networks:
+            - metronic_template_network
+
+    #    phpmyadmin
+    metronic_template_phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: metronic_template_phpmyadmin
+        restart: unless-stopped
+        depends_on:
+            - metronic_template_db
+        ports:
+            - "8001:80"
+        environment:
+            PMA_HOST: metronic_template_db
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        networks:
+            - metronic_template_network
+
+#   Docker Networks
+networks:
+    metronic_template_network:
+        driver: bridge
+
+volumes:
+    metronic_template_data: ~
