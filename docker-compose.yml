@@ -28,7 +28,7 @@ services:
         restart: unless-stopped # automatically restarts the MySQL server if stops
 
         ports:
-            - "3336:3306" # custom_port_number : actual_port_number
+            - "7784:3306" # custom_port_number : actual_port_number
 
         environment:
             MYSQL_DATABASE: ${DB_DATABASE} #database name
@@ -49,7 +49,7 @@ services:
         container_name: metronic_template_nginx
         restart: unless-stopped
         ports:
-            - "8000:80"
+            - "9000:80"
         volumes:
             - ./:/var/www
             - ./docker-compose/nginx:/etc/nginx/conf.d
@@ -64,7 +64,7 @@ services:
         depends_on:
             - metronic_template_db
         ports:
-            - "8001:80"
+            - "907784:80"
         environment:
             PMA_HOST: metronic_template_db
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
