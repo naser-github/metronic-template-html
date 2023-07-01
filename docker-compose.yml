@@ -64,7 +64,7 @@ services:
         depends_on:
             - metronic_template_db
         ports:
-            - "907784:80"
+            - "9077:80"
         environment:
             PMA_HOST: metronic_template_db
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
