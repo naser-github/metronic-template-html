@@ -233,7 +233,7 @@
                         <!--end::Menu separator-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="../../demo1/dist/account/overview.html" class="menu-link px-5">
+                            <a href="#" class="btn menu-link w-100 px-3">
                                 My Profile
                             </a>
                         </div>
@@ -241,8 +241,11 @@
 
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="../../demo1/dist/authentication/layouts/corporate/sign-in.html"
-                               class="menu-link px-5">Sign Out</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <button type="submit" class="btn menu-link w-100 px-3">Sign Out</button>
+                            </form>
                         </div>
                         <!--end::Menu item-->
                     </div>

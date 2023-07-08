@@ -17,17 +17,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('/test', [TestController::class, 'test']);
+
+    Route::resource('permissions', PermissionController::class)->only([
+        'index', 'store', 'destroy'
+    ]);
+
+    Route::resources([
+        'roles' => RoleController::class,
+        'users' => UserController::class,
+    ]);
+
 });
 
-Route::get('/test', [TestController::class, 'test']);
-
-Route::resource('permissions', PermissionController::class)->only([
-    'index', 'store', 'destroy'
-]);
-
-Route::resources([
-    'roles' => RoleController::class,
-    'users' => UserController::class,
-]);
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
