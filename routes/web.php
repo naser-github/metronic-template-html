@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Settings\PermissionController;
 use App\Http\Controllers\Settings\RoleController;
 use App\Http\Controllers\Settings\UserController;
@@ -21,12 +22,19 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/test', [TestController::class, 'test']);
+
     Route::get('/', function () {
         return view('welcome');
     });
 
-    Route::get('/test', [TestController::class, 'test']);
+    // profile
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+    });
 
+    //setting
     Route::resource('permissions', PermissionController::class)->only([
         'index', 'store', 'destroy'
     ]);
