@@ -58,7 +58,7 @@
                 <!--begin::Content wrapper-->
                 <div class="d-flex flex-column flex-column-fluid">
                     <!--begin::Breadcrumb Navigation-->
-                    @include('partials.breadcrumb-navigation')
+                    @yield('breadcrumb_navigation_path')
                     <!--end::Breadcrumb Navigation-->
                     <!--begin::Page Content-->
                     <div id="kt_app_content" class="app-content flex-column-fluid">
