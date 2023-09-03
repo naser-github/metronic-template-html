@@ -9,16 +9,12 @@
 @endsection
 
 @section('breadcrumb_navigation_path')
-    <!--begin::Item-->
-    <li class="breadcrumb-item text-muted">Role Management</li>
-    <!--end::Item-->
-    <!--begin::Item-->
-    <li class="breadcrumb-item">
-        <span class="bullet bg-gray-400 w-5px h-2px"></span>
-    </li>
-    <!--end::Item-->
-    <li class="breadcrumb-item text-muted">Role Detail</li>
-    <!--end::Item-->
+    @include('partials.breadcrumb-navigation', [
+        'breadcrumbs'=>[
+            ['name'=> 'Role Management', 'url' => 'roles.index'],
+            ['name'=> 'Show', 'url' => 'roles.edit', 'param' => $role->id],
+        ]
+    ])
 @endsection
 
 @section('page_content')

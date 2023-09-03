@@ -5,7 +5,7 @@
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
             <span class="text-muted fw-semibold me-1">{{\Carbon\Carbon::now()->format('Y')}}&copy;</span>
-            <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Inventory Manager</a>
+            <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">{{env('APP_NAME')}}</a>
         </div>
         <!--end::Copyright-->
         <!--begin::Menu-->

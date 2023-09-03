@@ -21,7 +21,8 @@
                     </li>
 
                     <li class="breadcrumb-item text-muted">
-                        <a href="{{ route($breadcrumb['url']) }}" class="text-muted text-hover-primary">
+                        <a href="{{ route($breadcrumb['url'], $breadcrumb['param']??[] ) }}"
+                           class="text-muted text-hover-primary">
                             {{ $breadcrumb['name'] }}
                         </a>
                     </li>

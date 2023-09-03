@@ -9,31 +9,20 @@
 @endsection
 
 @section('breadcrumb_navigation_path')
-    <!--begin::Item-->
-    <li class="breadcrumb-item text-muted">Role Management</li>
-    <!--end::Item-->
-    <!--begin::Item-->
-    <li class="breadcrumb-item">
-        <span class="bullet bg-gray-400 w-5px h-2px"></span>
-    </li>
-    <!--end::Item-->
-    <li class="breadcrumb-item text-muted">Edit</li>
-    <!--end::Item-->
+    @include('partials.breadcrumb-navigation', [
+        'breadcrumbs'=>[
+            ['name'=> 'Role Management', 'url' => 'roles.index'],
+            ['name'=> 'Edit', 'url' => 'roles.edit', 'param' => $role->id],
+        ]
+    ])
 @endsection
 
 @section('page_content')
     <div class="card">
         <!--begin::Card header-->
-        <div class="card-header cursor-pointer">
-            <!--begin::Card title-->
-            <div class="card-title m-0">
-                <a href="{{ URL::previous() }}" class="btn btn-sm btn-light-info ">
-                    <i class="fa-solid fa-arrow-left"></i> Back
-                </a>
-            </div>
-            <!--end::Card title-->
-        </div>
+        @include('components.back_button')
         <!--begin::Card header-->
+
         <!--begin::Card body-->
         <div class="card-body py-4">
             <form role="form" method="POST" action="{{ route('roles.update', $role->id) }}">

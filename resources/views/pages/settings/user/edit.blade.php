@@ -9,30 +9,18 @@
 @endsection
 
 @section('breadcrumb_navigation_path')
-    <!--begin::Item-->
-    <li class="breadcrumb-item text-muted">User Management</li>
-    <!--end::Item-->
-    <!--begin::Item-->
-    <li class="breadcrumb-item">
-        <span class="bullet bg-gray-400 w-5px h-2px"></span>
-    </li>
-    <!--end::Item-->
-    <li class="breadcrumb-item text-muted">Edit</li>
-    <!--end::Item-->
+    @include('partials.breadcrumb-navigation', [
+        'breadcrumbs'=>[
+            ['name'=> 'User Management', 'url' => 'users.index'],
+            ['name'=> 'Edit', 'url' => 'users.edit', 'param' => $user->id],
+        ]
+    ])
 @endsection
 
 @section('page_content')
     <div class="card">
         <!--begin::Card header-->
-        <div class="card-header cursor-pointer">
-            <!--begin::Card title-->
-            <div class="card-title m-0">
-                <a href="{{ URL::previous() }}" class="btn btn-sm btn-light-info ">
-                    <i class="fa-solid fa-arrow-left"></i> Back
-                </a>
-            </div>
-            <!--end::Card title-->
-        </div>
+        @include('components.back_button')
         <!--begin::Card header-->
         <!--begin::Card body-->
         <div class="card-body py-4">

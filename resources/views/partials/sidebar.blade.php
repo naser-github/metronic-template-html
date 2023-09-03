@@ -332,7 +332,7 @@
                             <i class="fa-solid fa-diagram-project"></i>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Roles Management</span>
+                        <span class="menu-title">Role Management</span>
                     </a>
                     <!--end:Menu link-->
                 </div>

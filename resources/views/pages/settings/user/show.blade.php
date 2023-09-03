@@ -9,16 +9,12 @@
 @endsection
 
 @section('breadcrumb_navigation_path')
-    <!--begin::Item-->
-    <li class="breadcrumb-item text-muted">User Management</li>
-    <!--end::Item-->
-    <!--begin::Item-->
-    <li class="breadcrumb-item">
-        <span class="bullet bg-gray-400 w-5px h-2px"></span>
-    </li>
-    <!--end::Item-->
-    <li class="breadcrumb-item text-muted">User Detail</li>
-    <!--end::Item-->
+    @include('partials.breadcrumb-navigation', [
+        'breadcrumbs'=>[
+            ['name'=> 'User Management', 'url' => 'users.index'],
+            ['name'=> 'Show', 'url' => 'users.show', 'param' => $user->id],
+        ]
+    ])
 @endsection
 
 @section('page_content')
