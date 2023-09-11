@@ -49,7 +49,7 @@ class RoleService
         $role->save();
     }
 
-    public function roleList(): Collection
+    public function getSelectableRoles(): Collection
     {
         return Role::all('id', 'name');
     }

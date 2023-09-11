@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function create(RoleService $roleService): Factory|View|Application
     {
-        $roles = $roleService->roleList();
+        $roles = $roleService->getSelectableRoles();
 
         return view('pages.settings.user.create', compact('roles'));
     }
@@ -95,7 +95,7 @@ class UserController extends Controller
         $user = $userService->findByIdWPR($id);
 
         if ($user) {
-            $roles = $roleService->roleList();
+            $roles = $roleService->getSelectableRoles();
             return view('pages.settings.user.edit', compact('roles', 'user'));
         } else {
             Session::flash('error', 'No User Found');
