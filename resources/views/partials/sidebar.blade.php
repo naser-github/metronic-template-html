@@ -5,12 +5,13 @@
     <!--begin::Logo-->
     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
-        <a href="/">
-            <img alt="Logo" src="assets/media/logos/default-dark.svg"
-                 class="h-25px app-sidebar-logo-default"/>
-            <img alt="Logo" src="assets/media/logos/default-small.svg"
-                 class="h-20px app-sidebar-logo-minimize"/>
-        </a>
+        <span id="kt_typedjs_example_1" class="fs-5 fw-bold text-white"></span>
+        {{--<a href="/">--}}
+        {{--<img alt="Logo" src="assets/media/logos/default-dark.svg"--}}
+        {{--    class="h-25px app-sidebar-logo-default"/>--}}
+        {{--<img alt="Logo" src="assets/media/logos/default-small.svg"--}}
+        {{--    class="h-20px app-sidebar-logo-minimize"/>--}}
+        {{--</a>--}}
         <!--end::Logo image-->
         <!--begin::Sidebar toggle-->
         <div id="kt_app_sidebar_toggle"
