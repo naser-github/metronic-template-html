@@ -65,7 +65,7 @@
                         <label for="phone" class="required form-label">Phone</label>
                         <input type="text" id="phone" name="phone" class="form-control"
                                placeholder="Phone" required
-                               value="{{ $user->profile->phone }}"
+                               value="{{ $user->phone }}"
                         />
                         @error('phone')
                         <span class="text-danger m-0 p-0" role="alert">

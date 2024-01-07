@@ -20,7 +20,12 @@ class UserProfileSeeder extends Seeder
         $user = User::query()->findOrFail(1);
         $profile = new UserProfile();
         $profile->user_id = $user->id;
-        $profile->phone = '01798435813';
+        $profile->save();
+
+        //test user
+        $user = User::query()->findOrFail(2);
+        $profile = new UserProfile();
+        $profile->user_id = $user->id;
         $profile->save();
     }
 }

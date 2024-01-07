@@ -62,6 +62,7 @@ class UserService
         $user = new User();
         $user->name = $payload['first_name'] . " " . $payload['last_name'];
         $user->email = $payload['email'];
+        $user->phone = $payload['phone'];
         $user->password = Hash::make($payload['password']);
         $user->status = $payload['status'];
         $user->save();
@@ -74,11 +75,10 @@ class UserService
      * @param $userPhone
      * @return void
      */
-    public function storeProfile($userId, $userPhone): void
+    public function storeProfile($userId): void
     {
         $profile = new UserProfile();
         $profile->user_id = $userId;
-        $profile->phone = $userPhone;
         $profile->save();
     }
 
@@ -91,6 +91,7 @@ class UserService
     {
         $user->name = $payload['name'];
         $user->email = $payload['email'];
+        $user->phone = $payload['phone'];
         if ($payload['password'] != null)
             $user->password = $payload['password'];
         $user->status = $payload['status'];
@@ -98,11 +99,9 @@ class UserService
     }
 
 
-    public function updateProfile($userId, $payload): void
+    public function updateProfile($userId): void
     {
         $profile = UserProfile::query()->where('user_id', $userId)->first();
-
-        $profile->phone = $payload;
         $profile->save();
     }
 

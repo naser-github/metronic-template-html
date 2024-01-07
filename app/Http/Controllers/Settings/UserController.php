@@ -56,7 +56,7 @@ class UserController extends Controller
         try {
             $user = $userService->store($validateData); // storing user data on the user table
 
-            $userService->storeProfile($user->id, $validateData['phone']); // storing user profile data
+            $userService->storeProfile($user->id); // storing user profile data
 
             $user->roles()->sync([$validateData['role']]); // syncing user with a role
 
@@ -76,7 +76,7 @@ class UserController extends Controller
         $user = $userService->findByIdWPR($id);
 
         if ($user) {
-            return view('pages.settings.user.show', compact( 'user'));
+            return view('pages.settings.user.show', compact('user'));
         } else {
             Session::flash('error', 'No User Found');
             return redirect()->back();
@@ -120,7 +120,7 @@ class UserController extends Controller
             DB::beginTransaction();
             try {
                 $userService->update($user, $validateData);
-                $userService->updateProfile($id, $validateData['phone']);
+                $userService->updateProfile($id);
                 $user->roles()->sync([$validateData['role']]); // syncing user with a role
                 DB::commit();
                 Session::flash('success', 'User has been Updated');

@@ -15,7 +15,6 @@ return new class extends Migration {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('phone', 21)->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
         });

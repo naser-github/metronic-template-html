@@ -64,7 +64,7 @@
                 <!--end::Label-->
                 <!--begin::Col-->
                 <div class="col-lg-8 d-flex align-items-center">
-                    <span class="fw-bold fs-6 text-gray-800 me-2">{{$user->profile->phone}}</span>
+                    <span class="fw-bold fs-6 text-gray-800 me-2">{{$user->phone}}</span>
                 </div>
                 <!--end::Col-->
             </div>

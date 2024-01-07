@@ -30,7 +30,7 @@ class UserStoreRequest extends FormRequest
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'regex:/(01)[0-9]{9}$/', 'unique:user_profiles,phone'],
+            'phone' => ['required', 'regex:/(01)[0-9]{9}$/', 'unique:users,phone'],
             'password' => ['required', 'string', 'confirmed', Password::min(8)->mixedCase()->symbols()],
             'status' => ['required', 'boolean'],
         ];

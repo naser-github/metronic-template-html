@@ -59,7 +59,7 @@
         <!--begin::Card body-->
         <div class="card-body py-4">
             <!--begin::Table-->
-            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table">
                 <!--begin::Table head-->
                 <thead>
                 <!--begin::Table row-->
@@ -99,7 +99,7 @@
 
                         <!--begin::Phone=-->
                         <td>
-                            {{$user->profile?$user->profile->phone:null}}
+                            {{$user->phone}}
                         </td>
                         <!--end::Phone=-->
 
@@ -171,7 +171,7 @@
     <!--end::Vendors Javascript-->
 
     <script>
-        const table = $('#kt_table_users').DataTable();
+        const table = $('#kt_table').DataTable();
 
         // #searchInput is a <input type="text"> element
         $('#searchInput').on('keyup', function () {
